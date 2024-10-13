@@ -1,3 +1,4 @@
+/*
 function checkAge(){
     const ageField = document.getElementById('age');
     const ageText = ageField.value;
@@ -32,5 +33,31 @@ function checkAge(){
     // finally er moddhe jeta thakbe eta must kaj korbe alltime
     finally{
         console.log('All done inside try catch');
+    }
+}
+    */
+
+function checkAge(){
+    const ageField = document.getElementById('age');
+    const ageText = ageField.value;
+    const errorTag = document.getElementById('error');
+
+    try{
+        const age = parseInt(ageText);
+        if(isNaN(age)){
+            throw "Please enter a number";
+        }
+        else if(age < 18){
+            throw "Below 18 is not allowed";
+        }
+
+        else if(age > 30){
+            throw "After 30 is not allowed";
+        }
+        errorTag.innerText = '';
+    }
+
+    catch(err){
+        errorTag.innerText = 'Error! ' + err;
     }
 }
